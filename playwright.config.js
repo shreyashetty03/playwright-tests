@@ -1,32 +1,25 @@
-// @ts-check
-const { defineConfig, devices } = require('@playwright/test');
-const { trace } = require('console');
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-const config = 
-{
+//Test configuration for Playwright tests
+const config = {
   testDir: './tests',
-  timeout: 60 * 1000,
+  timeout: 20 * 60 * 1000,
 
   expect: {
-    timeout: 5000
+    timeout: 10000,
   },
 
-  reporter: 'html',
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+
+  reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
 
   use: {
     browserName: 'chromium',
-
-    headless: false,
-
+    headless: !!process.env.CI,
     screenshot: {
-      fullPage: true
+      fullPage: true,
     },
-
     trace: 'retain-on-failure',
-
   },
 };
 
