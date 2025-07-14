@@ -41,19 +41,13 @@ const runTestOnUrl = async (env, baseUrl, page, context) => {
 
 
   await safeStep('gotoBuildingSpaceOverview', async () => {
-    await spaceManagement.gotoGISPolygons();
+    await spaceManagement.gotoBuildingSpaceOverview();
   });
 
 
-  await safeStep('gotoBuildingSpaceOverview', async () => {
-     await spaceManagement.gotoBuildingSpaceOverview();
-     await waitForProcessingAndTakeScreenshot(page, env, 'gotoBuildingSpaceOverview');
-  });
-
-
-    await safeStep('gotoBuildingSpaceOverview', async () => {
-     await spaceManagement.gotoBuildingSpaceOverview();
-     await waitForProcessingAndTakeScreenshot(page, env, 'gotoBuildingSpaceOverview');
+  await safeStep('gotoBuildingSpaces', async () => {
+     await spaceManagement.gotoBuildingSpaces();
+     await waitForProcessingAndTakeScreenshot(page, env, 'gotoBuildingSpaces');
   });
 
 
