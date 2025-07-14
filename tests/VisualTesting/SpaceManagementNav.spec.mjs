@@ -11,6 +11,7 @@ import {
 // Initialize environment and clear screenshots
 initializeVisualTestEnv();
 
+
 // Screens to validate
 const labels = [
   'gotoBuildingSpaceOverview', 'gotoLocateOrganisation', 'gotoLocateEquipment',
