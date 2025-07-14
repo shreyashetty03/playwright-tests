@@ -20,6 +20,7 @@ const labels = [
   'gotoLocateEquipmentSubType', 'gotoKeyToLock', 'gotoAccessConfiguration','gotoWorkOrderHours'
 ];
 
+
 // Run the visual test for a given URL environment
 const runTestOnUrl = async (env, baseUrl, page, context) => {
   const { homePage, spaceManagement } = await loginAndInitialize({ page, context, baseUrl });
